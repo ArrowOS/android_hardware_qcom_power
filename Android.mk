@@ -174,6 +174,11 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_OWNER := qcom
 LOCAL_VENDOR_MODULE := true
 LOCAL_HEADER_LIBRARIES := libhardware_headers
+
+ifeq ($(TARGET_POWERHAL_32_BIT_ONLY),true)
+	LOCAL_32_BIT_ONLY := true
+endif
+
 include $(BUILD_EXECUTABLE)
 
 endif
