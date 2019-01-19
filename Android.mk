@@ -158,6 +158,11 @@ endif
 ifeq ($(TARGET_HAS_NO_WLAN_STATS),true)
 LOCAL_CFLAGS += -DNO_WLAN_STATS
 endif
+
+ifeq ($(TARGET_CLUSTER_SWITCHED_PLACES),true)
+    LOCAL_CFLAGS += -DLITTLE_CPUFREQ_SWITCHED
+endif
+
 LOCAL_MODULE := android.hardware.power@1.1-service-qti
 LOCAL_INIT_RC := android.hardware.power@1.1-service-qti.rc
 LOCAL_SHARED_LIBRARIES += android.hardware.power@1.1

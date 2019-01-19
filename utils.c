@@ -50,12 +50,21 @@
 #define SOC_ID_0 "/sys/devices/soc0/soc_id"
 #define SOC_ID_1 "/sys/devices/system/soc/soc0/id"
 
+#ifndef LITTLE_CPUFREQ_SWITCHED
 const char *scaling_gov_path[4] = {
     "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
     "/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor",
     "/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor",
     "/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor"
 };
+#else
+const char *scaling_gov_path[4] = {
+    "/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu5/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu6/cpufreq/scaling_governor",
+    "/sys/devices/system/cpu/cpu7/cpufreq/scaling_governor"
+};
+#endif
 
 #define PERF_HAL_PATH "libqti-perfd-client.so"
 static void *qcopt_handle;
