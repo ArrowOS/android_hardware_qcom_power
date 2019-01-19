@@ -163,6 +163,10 @@ ifeq ($(TARGET_ARCH),arm)
 LOCAL_CFLAGS += -DARCH_ARM_32
 endif
 
+ifeq ($(TARGET_CLUSTER_SWITCHED_PLACES),true)
+    LOCAL_CFLAGS += -DLITTLE_CPUFREQ_SWITCHED
+endif
+
 LOCAL_MODULE := android.hardware.power@1.1-service-qti
 LOCAL_INIT_RC := android.hardware.power@1.1-service-qti.rc
 LOCAL_SHARED_LIBRARIES += android.hardware.power@1.1 vendor.lineage.power@1.0
